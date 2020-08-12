@@ -19,7 +19,7 @@ router.post('/signup', (req, res) => {
     } else {
       axios
         .post(
-          'https://api.clickup.com/api/v2/folder/17060726/list',
+          'https://cors-anywhere.herokuapp.com/https://api.clickup.com/api/v2/folder/17060726/list',
           { name: companyName },
           {
             headers: {
