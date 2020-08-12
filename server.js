@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const cors = require('cors');
 const passport = require('./passport');
 const app = express();
 
@@ -16,6 +17,8 @@ mongoose.connect(
 );
 
 const auth = require('./routes/authRoutes');
+
+app.use(cors());
 
 app.use(
   session({

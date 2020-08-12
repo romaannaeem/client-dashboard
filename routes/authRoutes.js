@@ -19,11 +19,11 @@ router.post('/signup', (req, res) => {
     } else {
       axios
         .post(
-          'https://cors-anywhere.herokuapp.com/https://api.clickup.com/api/v2/folder/17060726/list',
+          'https://api.clickup.com/api/v2/folder/17060726/list',
           { name: companyName },
           {
             headers: {
-              Authorization: 'pk_6394966_JS4E8J4UHJEK6UL7DSOEJNJJOS8ZP17V',
+              Authorization: '1495561_c50210781cfaf81dd192910d5835967f670e3cc0',
             },
           }
         )
