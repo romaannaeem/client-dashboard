@@ -42,6 +42,7 @@ const Projects = () => {
     {
       console.log(projectsList);
     }
+    console.log('auth', auth);
     if (auth) {
       return (
         <>

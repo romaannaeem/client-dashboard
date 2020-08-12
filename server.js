@@ -37,11 +37,6 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  console.log('req.session', req.session);
-  next();
-});
-
 app.use('/auth', auth);
 
 // For deployment

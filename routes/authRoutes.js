@@ -19,7 +19,7 @@ router.post('/signup', (req, res) => {
     } else {
       axios
         .post(
-          'https://cors-anywhere.herokuapp.com/https://api.clickup.com/api/v2/folder/17060726/list',
+          'https://api.clickup.com/api/v2/folder/17060726/list',
           { name: companyName },
           {
             headers: {
@@ -81,9 +81,10 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/user', async (req, res) => {
-  const user = await User.findById(req.user._id).exec();
-  // console.log('user', user);
-  res.send(user);
+  if (req.user) {
+    const user = await User.findById(req.user._id).exec();
+    res.send(user);
+  } else res.send('');
 });
 
 module.exports = router;
