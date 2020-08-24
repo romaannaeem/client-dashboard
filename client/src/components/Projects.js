@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Table, Tag } from 'antd';
+import { Typography, Table, Tag, Button } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import clickupApi from '../api/clickup';
@@ -84,6 +85,15 @@ const Projects = () => {
               )}
             />
           </Table>
+          {/* <Button
+            className="new-project-button"
+            type="primary"
+            shape="round"
+            icon={<EditOutlined />}
+            size="large"
+          >
+            Make a Request
+          </Button> */}
         </>
       );
     } else {

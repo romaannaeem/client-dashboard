@@ -11,6 +11,7 @@ import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 import Projects from './Projects';
 import ProjectDetails from './ProjectDetails';
+import NewProjectForm from './NewProjectForm';
 
 class App extends Component {
   componentDidMount() {
@@ -24,8 +25,9 @@ class App extends Component {
           <HeaderBar />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/signup" component={SignupScreen} />
-          <Route exact path="/project/:id" component={ProjectDetails} />
           <Route exact path="/" component={Projects} />
+          <Route exact path="/new/project" component={NewProjectForm} />
+          <Route exact path="/project/:id" component={ProjectDetails} />
         </Layout>
       </HashRouter>
     );
