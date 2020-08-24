@@ -123,7 +123,7 @@ export default function ProjectDetails() {
                 onFinish={(value) => {
                   let newComment = {
                     comment_text: value.comment,
-                    user: { id: 10562356 },
+                    user: { id: 10588308 },
                     id: value.comment,
                     date: Date.now(),
                   };
