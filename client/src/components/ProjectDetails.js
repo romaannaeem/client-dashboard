@@ -93,7 +93,7 @@ export default function ProjectDetails() {
                 console.log('comment', comment);
                 let author;
                 let avatarUrl;
-                if (comment.user.id == 10562356) {
+                if (comment.user.id == 10588308) {
                   author = 'You';
                   avatarUrl =
                     'https://i0.wp.com/tleliteracy.com/wp-content/uploads/2017/02/default-avatar.png?ssl=1';
