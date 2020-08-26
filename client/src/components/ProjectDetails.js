@@ -14,6 +14,7 @@ import { PaperClipOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import clickupApi from '../api/clickup';
 import clientClickupApi from '../api/clientClickup';
+import { clickupClientId } from '../config/keys';
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -93,7 +94,7 @@ export default function ProjectDetails() {
                 console.log('comment', comment);
                 let author;
                 let avatarUrl;
-                if (comment.user.id == 10588308) {
+                if (comment.user.id == clickupClientId) {
                   author = 'You';
                   avatarUrl =
                     'https://i0.wp.com/tleliteracy.com/wp-content/uploads/2017/02/default-avatar.png?ssl=1';
@@ -123,7 +124,7 @@ export default function ProjectDetails() {
                 onFinish={(value) => {
                   let newComment = {
                     comment_text: value.comment,
-                    user: { id: 10588308 },
+                    user: { id: clickupClientId },
                     id: value.comment,
                     date: Date.now(),
                   };
