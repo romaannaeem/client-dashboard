@@ -13,6 +13,7 @@ import Projects from './Projects';
 import ProjectDetails from './ProjectDetails';
 import NewProjectForm from './NewProjectForm';
 import ConfirmationScreen from './ConfirmationScreen';
+import HelpScreen from './HelpScreen';
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path="/project/:id" component={ProjectDetails} />
           <Route exact path="/new/project" component={NewProjectForm} />
           <Route exact path="/confirmation" component={ConfirmationScreen} />
+          <Route exact path="/help" component={HelpScreen} />
         </Layout>
       </HashRouter>
     );

@@ -28,7 +28,13 @@ class HeaderBar extends Component {
                 <Link to="/new/project" />
               </span>
             </Menu.Item>
-            <Menu.Item key="3" onClick={() => this.props.logoutUser()}>
+            <Menu.Item key="3">
+              <span>
+                Usage Guide
+                <Link to="/help" />
+              </span>
+            </Menu.Item>
+            <Menu.Item key="4" onClick={() => this.props.logoutUser()}>
               Log Out
             </Menu.Item>
           </Menu>
