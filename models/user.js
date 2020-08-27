@@ -14,6 +14,9 @@ const userSchema = new Schema({
     required: true,
   },
   companyName: String,
+  contactName: String,
+  contactPhone: String,
+  contactEmail: String,
   clickupListId: String,
 });
 

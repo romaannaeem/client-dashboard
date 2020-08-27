@@ -6,7 +6,14 @@ const passport = require('../passport');
 
 // Sign Up
 router.post('/signup', (req, res) => {
-  const { username, password, companyName } = req.body;
+  const {
+    username,
+    password,
+    companyName,
+    contactName,
+    contactPhone,
+    contactEmail,
+  } = req.body;
 
   // ADD VALIDATION
   User.findOne({ username }, (err, user) => {
@@ -30,8 +37,11 @@ router.post('/signup', (req, res) => {
         .then((response) => {
           const newUser = new User({
             username,
-            companyName,
             password,
+            companyName,
+            contactName,
+            contactPhone,
+            contactEmail,
             clickupListId: response.data.id,
           });
 

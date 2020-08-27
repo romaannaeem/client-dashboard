@@ -17,6 +17,9 @@ export default function SignupScreen() {
         {
           username: values.username,
           companyName: values.companyName,
+          contactName: values.contactName,
+          contactPhone: values.contactPhone,
+          contactEmail: values.contactEmail,
           password: values.password,
         },
         { withCredentials: true }
@@ -68,6 +71,34 @@ export default function SignupScreen() {
             rules={[
               { required: true, message: 'Please input the company name.' },
             ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Contact Name"
+            name="contactName"
+            rules={[
+              { required: true, message: 'Please input the contact name.' },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Contact Phone"
+            name="contactPhone"
+            rules={[
+              { required: true, message: 'Please input a phone number.' },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Contact Email"
+            name="contactEmail"
+            rules={[{ required: true, message: 'Please input an email.' }]}
           >
             <Input />
           </Form.Item>
