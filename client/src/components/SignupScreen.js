@@ -17,7 +17,8 @@ export default function SignupScreen() {
         {
           username: values.username,
           companyName: values.companyName,
-          contactName: values.contactName,
+          contactFirstName: values.contactFirstName,
+          contactLastName: values.contactLastName,
           contactPhone: values.contactPhone,
           contactEmail: values.contactEmail,
           password: values.password,
@@ -76,10 +77,26 @@ export default function SignupScreen() {
           </Form.Item>
 
           <Form.Item
-            label="Contact Name"
-            name="contactName"
+            label="First Name"
+            name="contactFirstName"
             rules={[
-              { required: true, message: 'Please input the contact name.' },
+              {
+                required: true,
+                message: `Please input the contact's first name.`,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Last Name"
+            name="contactLastName"
+            rules={[
+              {
+                required: true,
+                message: `Please input the contact's last name.`,
+              },
             ]}
           >
             <Input />

@@ -10,7 +10,8 @@ router.post('/signup', (req, res) => {
     username,
     password,
     companyName,
-    contactName,
+    contactFirstName,
+    contactLastName,
     contactPhone,
     contactEmail,
   } = req.body;
@@ -39,7 +40,8 @@ router.post('/signup', (req, res) => {
             username,
             password,
             companyName,
-            contactName,
+            contactFirstName,
+            contactLastName,
             contactPhone,
             contactEmail,
             clickupListId: response.data.id,
@@ -49,6 +51,31 @@ router.post('/signup', (req, res) => {
             if (err) return res.json(err);
             res.json(savedUser);
           });
+        })
+        .then(() => {
+          axios.post(
+            'https://api.hubapi.com/contacts/v1/contact/?hapikey=171532d9-561b-4dcf-80f9-a4f268cdff87',
+            {
+              properties: [
+                {
+                  property: 'firstname',
+                  value: contactFirstName,
+                },
+                {
+                  property: 'lastname',
+                  value: contactLastName,
+                },
+                {
+                  property: 'phone',
+                  value: contactPhone,
+                },
+                {
+                  property: 'email',
+                  value: contactEmail,
+                },
+              ],
+            }
+          );
         })
         .catch((err) => console.log('User create failed', err));
     }
