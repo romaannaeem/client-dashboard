@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import {
   Typography,
   Row,
@@ -17,11 +17,11 @@ import clientClickupApi from '../api/clientClickup';
 import { clickupClientId } from '../config/keys';
 
 const { Title } = Typography;
-const { Search } = Input;
 
 export default function ProjectDetails() {
   const auth = useSelector((state) => state.auth);
   const params = useParams();
+  const history = useHistory();
   const [project, setProject] = useState();
   const [comments, setComments] = useState([]);
   const [form] = Form.useForm();
@@ -36,11 +36,26 @@ export default function ProjectDetails() {
       setComments(commentResponse.data.comments);
     };
     fetchData();
-    setInterval(fetchData, 30000);
+    setInterval(fetchData, 45000);
   }, [auth]);
+
+  const completeTask = () => {
+    clientClickupApi
+      .post(`/task/${project.id}/tag/approved by client`, {
+        status: 'complete',
+      })
+      .then(() => {
+        clientClickupApi.put(`/task/${project.id}`, {
+          status: 'complete',
+        });
+      })
+      .then(() => history.push('/confirmation'))
+      .catch((err) => console.log(err));
+  };
 
   const renderContent = () => {
     if (project) {
+      console.log(project);
       return (
         <>
           <Row>
@@ -74,6 +89,20 @@ export default function ProjectDetails() {
                   </a>
                 );
               })}
+
+              {project.status.status === 'needs client approval' ? (
+                <div style={{ paddingTop: '4%' }}>
+                  <Title level={3}>Approve Project</Title>
+                  <Button
+                    onClick={() => completeTask()}
+                    className="approve-button"
+                    type="primary"
+                    size="large"
+                  >
+                    Approve & Close Project
+                  </Button>
+                </div>
+              ) : null}
             </Col>
             <Col
               lg={8}
@@ -91,7 +120,6 @@ export default function ProjectDetails() {
               <Title level={3}>Chat</Title>
 
               {comments.map((comment) => {
-                console.log('comment', comment);
                 let author;
                 let avatarUrl;
                 if (comment.user.id == clickupClientId) {
