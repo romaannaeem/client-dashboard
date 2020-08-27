@@ -24,17 +24,23 @@ class HeaderBar extends Component {
             </Menu.Item>
             <Menu.Item key="2">
               <span>
+                Closed Projects
+                <Link to="/closed" />
+              </span>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <span>
                 Make a Request
                 <Link to="/new/project" />
               </span>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="4">
               <span>
                 Usage Guide
                 <Link to="/help" />
               </span>
             </Menu.Item>
-            <Menu.Item key="4" onClick={() => this.props.logoutUser()}>
+            <Menu.Item key="5" onClick={() => this.props.logoutUser()}>
               Log Out
             </Menu.Item>
           </Menu>

@@ -10,6 +10,7 @@ import HeaderBar from './HeaderBar';
 import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 import Projects from './Projects';
+import ClosedProjects from './ClosedProjects';
 import ProjectDetails from './ProjectDetails';
 import NewProjectForm from './NewProjectForm';
 import ConfirmationScreen from './ConfirmationScreen';
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/signup" component={SignupScreen} />
           <Route exact path="/" component={Projects} />
+          <Route exact path="/closed" component={ClosedProjects} />
           <Route exact path="/project/:id" component={ProjectDetails} />
           <Route exact path="/new/project" component={NewProjectForm} />
           <Route exact path="/confirmation" component={ConfirmationScreen} />
